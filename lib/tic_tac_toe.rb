@@ -28,12 +28,17 @@ class TicTacToe
     @board[index] == ' ' || @board[index].nil? ? false : true
   end
 
- def valid_move?(index)
-   !position_taken?(index) && index.between?(0, 8) ? true : false
- end
+  def valid_move?(index)
+    !position_taken?(index) && index.between?(0, 8) ? true : false
+  end
 
- def turn_count
-   @board.count { |input| input == 'X' || input == 'O' }
- end
+  def turn_count
+    @board.count { |input| input == 'X' || input == 'O' }
+  end
+
+  def current_player
+    turn_count % 2 == 0 ? "X" : "O"
+  end
+
 
 end
